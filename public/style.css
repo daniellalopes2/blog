@@ -1,0 +1,39 @@
+body { 
+    background-color: #30353B
+
+}
+
+#logo {
+    margin-top: 25px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+p {
+    width: 59%;
+    margin-top: 25px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#divForm {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.btn-red {
+   background:  #F52727;
+   color: #FFFFFF;
+   margin-left: auto;
+    margin-right: auto;
+}
+
+
+
