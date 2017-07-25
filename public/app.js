@@ -60,11 +60,8 @@ function HomeController($scope, $http){
         function createLead(lead) {
             $http.get("https://ipinfo.io/").then(function (response) {
                 lead.ip = response.data.ip;
-            });
-            console.log(lead);
-            $http
-                .post("/api/bloglead", lead);
-                        
+                $http.post("/api/bloglead", lead);
+            });          
         }
 }
 
