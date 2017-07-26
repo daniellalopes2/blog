@@ -2,13 +2,14 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose'); // requisição do banco
-mongoose.connect('mongodb://localhost/blog2017');
+var mongo_url = process.env.MONGODB_URI || 'mongodb://localhost/blog2017';
+mongoose.connect(mongo_url);
 
 var LeadSchema = mongoose.Schema({
     name: {type: String, require: true},
     email: {type: String, require: true},
     ip: {type: String, require: true},
-    createDate: {type: Date, default: Date.now} 
+    createDate: {type: Date, default: Date.now}
 }, {collection: "lead"});
 
 var LeadModel = mongoose.model("LeadModel", LeadSchema);
@@ -67,7 +68,7 @@ function getPostById(req, res) {
 function deletePost(req, res){
     var postId = req.params.id;
     PostModel
-        .remove({_id: postId}) // novo 
+        .remove({_id: postId}) // novo
         .then(
         function (status) {
             console.log(status.result);
@@ -105,7 +106,7 @@ function createPost(req, res) {
                 res.sendStatus(400);
             }
         );
-    
+
 }
 
 function createLead(req, res) {
@@ -121,7 +122,7 @@ function createLead(req, res) {
                 res.sendStatus(400);
             }
         );
-    
+
 }
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
